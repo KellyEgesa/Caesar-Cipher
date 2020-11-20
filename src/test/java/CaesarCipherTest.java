@@ -12,7 +12,7 @@ public class CaesarCipherTest {
     @Test(expected = Exception.class)
     public void newCaesarCipher_ifUserInputString_exception() throws Exception{
         CaesarCipher testCaesarCipher = new CaesarCipher("1", 2);
-        assertNull(testCaesarCipher.getUserInput());
+        assertEquals(null,testCaesarCipher.getUserInput());
     }
 
     @Test(expected = Exception.class)
@@ -39,5 +39,16 @@ public class CaesarCipherTest {
         assertEquals(2, testCaesarCipher.getShiftKey());
     }
 
+    @Test
+    public void newCaesarCipher_encryptsCharacterByIndexLessThan26_b() throws Exception {
+        CaesarCipher testCaesarCipher = new CaesarCipher("a", 1);
+        assertEquals("b", testCaesarCipher.encrypt());
+    }
+
+    @Test
+    public void newCaesarCipher_encryptsCharacterByIndexGreaterThan26_b() throws Exception{
+        CaesarCipher testCaesarCipher = new CaesarCipher("z", 2);
+        assertEquals("b", testCaesarCipher.encrypt());
+    }
 
 }
