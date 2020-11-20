@@ -3,18 +3,9 @@ public class CaesarCipher {
     private int shiftKey;
 
     public CaesarCipher(String input, int key) throws Exception {
-        char[] checkNumbers = input.toCharArray();
-        Boolean numberFound = false;
-        for (char checkNumber : checkNumbers) {
-            if (Character.isDigit(checkNumber)) {
-                numberFound = true;
-            }
-        }
-        if (numberFound) {
-            throw new Exception("The input contains a number");
-        } else {
-            userInput = input;
-        }
+        checkForNumber(input);
+        userInput = input;
+
         shiftKey = key;
     }
 
@@ -26,8 +17,13 @@ public class CaesarCipher {
         return shiftKey;
     }
 
-    public Boolean check() {
-        return Boolean.parseBoolean(getUserInput());
+    private void checkForNumber(String numberToCheck) throws Exception {
+        char[] checkNumbers = numberToCheck.toCharArray();
+        for (char checkNumber : checkNumbers) {
+            if (Character.isDigit(checkNumber)) {
+                throw new Exception("The input contains a number");
+            }
+        }
     }
 
 }

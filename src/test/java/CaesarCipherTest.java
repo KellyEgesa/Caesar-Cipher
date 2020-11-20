@@ -6,20 +6,25 @@ public class CaesarCipherTest {
     @Test
     public void newCaesarCipher_instantiatesCorrectly() throws Exception{
         CaesarCipher testCaesarCipher = new CaesarCipher("Boy", 2);
-        assertTrue(testCaesarCipher instanceof CaesarCipher);
+        assertEquals(true, testCaesarCipher instanceof CaesarCipher);
     }
 
     @Test(expected = Exception.class)
-    public void newCaesarCipher_ifUserInputString_inputStringOnly() throws Exception{
+    public void newCaesarCipher_ifUserInputString_exception() throws Exception{
         CaesarCipher testCaesarCipher = new CaesarCipher("1", 2);
-        assertEquals(null, testCaesarCipher.getUserInput());
+        assertNull(testCaesarCipher.getUserInput());
+    }
+
+    @Test(expected = Exception.class)
+    public void newCaesarCipher_ifUserInputsNull_exception() throws Exception{
+        CaesarCipher testCaesarCipher = new CaesarCipher("", 2);
+        assertNull(testCaesarCipher.getUserInput());
     }
 
     @Test
     public void newCaesarCipher_ifShiftKeyInteger_true() throws Exception{
         CaesarCipher testCaesarCipher = new CaesarCipher("Boy", 2);
-        int testShiftKey = testCaesarCipher.getShiftKey();
-        assertTrue( testShiftKey % 1 == 0 );
+        assertTrue( testCaesarCipher.getShiftKey()%1==0 );
     }
 
     @Test
@@ -33,4 +38,6 @@ public class CaesarCipherTest {
         CaesarCipher testCaesarCipher = new CaesarCipher("Boy", 2);
         assertEquals(2, testCaesarCipher.getShiftKey());
     }
+
+
 }
