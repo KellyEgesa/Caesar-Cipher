@@ -62,4 +62,10 @@ public class CaesarCipherTest {
         CaesarCipher testCaesarCipher = new CaesarCipher("b", 1);
         assertEquals("a", testCaesarCipher.decrypt());
     }
+
+    @Test
+    public void newCaesarCipher_decryptsStringByNegativeIndex_z() throws Exception {
+       CaesarCipher testCaesarCipher = new CaesarCipher("b", 2);
+       assertEquals("z", testCaesarCipher.decrypt());
+    }
 }

@@ -31,7 +31,7 @@ public class CaesarCipher {
             if (alphabets.contains(toEncryptAlphabet)) {
                 int indexOfAlphabet = alphabets.indexOf(toEncryptAlphabet);
                 int indexOfEncryptedAlphabet = indexOfAlphabet + shiftKey;
-                if (indexOfEncryptedAlphabet > 26) {
+                if (indexOfEncryptedAlphabet > 25) {
                     encrypted += alphabetsArrays[indexOfEncryptedAlphabet - 26];
                 } else {
                     encrypted += alphabetsArrays[indexOfEncryptedAlphabet];
@@ -60,7 +60,12 @@ public class CaesarCipher {
         for (String toDecryptAlphabet: toDecryptAlphabets) {
             int indexOfAlphabet = alphabets.indexOf(toDecryptAlphabet);
             int indexOfDecryptedAlphabet = indexOfAlphabet - shiftKey;
-            decrypted += alphabetsArrays[indexOfDecryptedAlphabet];
+            if(indexOfDecryptedAlphabet < 0){
+                decrypted += alphabetsArrays[26 + indexOfDecryptedAlphabet];
+            }
+            else{
+                decrypted += alphabetsArrays[indexOfDecryptedAlphabet];
+            }
         }
         return  decrypted;
     }
