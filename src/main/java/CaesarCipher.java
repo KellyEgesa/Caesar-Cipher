@@ -28,7 +28,7 @@ public class CaesarCipher {
         String[] toEncryptAlphabets = userInput.split("");
         String encrypted = "";
         for (String toEncryptAlphabet : toEncryptAlphabets) {
-            if (alphabets.indexOf(toEncryptAlphabet) > -1) {
+            if (alphabets.contains(toEncryptAlphabet)) {
                 int indexOfAlphabet = alphabets.indexOf(toEncryptAlphabet);
                 int indexOfEncryptedAlphabet = indexOfAlphabet + shiftKey;
                 if (indexOfEncryptedAlphabet > 26) {
@@ -53,4 +53,15 @@ public class CaesarCipher {
         }
     }
 
+    public String decrypt() {
+        String[] alphabetsArrays = alphabets.split("");
+        String[] toDecryptAlphabets = userInput.split("");
+        String decrypted = "";
+        for (String toDecryptAlphabet: toDecryptAlphabets) {
+            int indexOfAlphabet = alphabets.indexOf(toDecryptAlphabet);
+            int indexOfDecryptedAlphabet = indexOfAlphabet - shiftKey;
+            decrypted += alphabetsArrays[indexOfDecryptedAlphabet];
+        }
+        return  decrypted;
+    }
 }

@@ -40,13 +40,13 @@ public class CaesarCipherTest {
     }
 
     @Test
-    public void newCaesarCipher_encryptsCharacterByIndexLessThan26_b() throws Exception {
+    public void newCaesarCipher_encryptsStringByIndexLessThan26_b() throws Exception {
         CaesarCipher testCaesarCipher = new CaesarCipher("a", 1);
         assertEquals("b", testCaesarCipher.encrypt());
     }
 
     @Test
-    public void newCaesarCipher_encryptsCharacterByIndexGreaterThan26_b() throws Exception{
+    public void newCaesarCipher_encryptsStringByIndexGreaterThan26_b() throws Exception{
         CaesarCipher testCaesarCipher = new CaesarCipher("z", 2);
         assertEquals("b", testCaesarCipher.encrypt());
     }
@@ -55,5 +55,11 @@ public class CaesarCipherTest {
     public void newCaesarCipher_encryptsStringsWithSpace_bCpz() throws Exception{
         CaesarCipher testCaesarCipher = new CaesarCipher("a boy", 1);
         assertEquals("b cpz", testCaesarCipher.encrypt());
+    }
+
+    @Test
+    public void newCaesarCipher_decryptsStringByPositiveIndex_a() throws Exception{
+        CaesarCipher testCaesarCipher = new CaesarCipher("b", 1);
+        assertEquals("a", testCaesarCipher.decrypt());
     }
 }
