@@ -8,7 +8,12 @@ public class CaesarCipher {
         if (input != "") {
             checkForNumber(input);
             userInput = input;
-            shiftKey = key;
+            if(key > 26){
+                shiftKey = key % 26;
+            }
+            else{
+                shiftKey = key;
+            }
         } else {
             throw new Exception("The input is null");
         }
@@ -58,14 +63,19 @@ public class CaesarCipher {
         String[] toDecryptAlphabets = userInput.split("");
         String decrypted = "";
         for (String toDecryptAlphabet: toDecryptAlphabets) {
-            int indexOfAlphabet = alphabets.indexOf(toDecryptAlphabet);
-            int indexOfDecryptedAlphabet = indexOfAlphabet - shiftKey;
-            if(indexOfDecryptedAlphabet < 0){
-                decrypted += alphabetsArrays[26 + indexOfDecryptedAlphabet];
+            if (alphabets.contains(toDecryptAlphabet)){
+                int indexOfAlphabet = alphabets.indexOf(toDecryptAlphabet);
+                int indexOfDecryptedAlphabet = indexOfAlphabet - shiftKey;
+                if(indexOfDecryptedAlphabet < 0){
+                    decrypted += alphabetsArrays[26 + indexOfDecryptedAlphabet];
+                }
+                else{
+                    decrypted += alphabetsArrays[indexOfDecryptedAlphabet];
+                }
+            }else{
+                decrypted+=toDecryptAlphabet;
             }
-            else{
-                decrypted += alphabetsArrays[indexOfDecryptedAlphabet];
-            }
+
         }
         return  decrypted;
     }

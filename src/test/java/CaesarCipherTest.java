@@ -68,4 +68,10 @@ public class CaesarCipherTest {
        CaesarCipher testCaesarCipher = new CaesarCipher("b", 2);
        assertEquals("z", testCaesarCipher.decrypt());
     }
+
+    @Test
+    public void newCaesarCipher_decryptsStringsWithSpace_aBoy() throws  Exception{
+        CaesarCipher testCaesarCipher = new CaesarCipher("b cpz", 1);
+        assertEquals("a boy", testCaesarCipher.decrypt());
+    }
 }
