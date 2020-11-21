@@ -1,10 +1,9 @@
-public class CaesarCipher {
+public class Encrypt {
     private String userInput;
     private int shiftKey;
     private final String alphabets = "abcdefghijklmnopqrstuvwxyz";
 
-
-    public CaesarCipher(String input, int key) throws Exception {
+    public Encrypt(String input, int key) throws Exception {
         if (input != "") {
             checkForNumber(input);
             userInput = input;
