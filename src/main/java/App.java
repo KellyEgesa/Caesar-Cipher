@@ -8,7 +8,7 @@ public class App {
         System.out.println("======CAESAR CIPHER======");
         System.out.println("=========WELCOME=========");
         try{
-            System.out.print("Kindly enter your ");
+            System.out.print("Kindly enter your String: ");
         }catch (IOException e){
             e.printStackTrace();
         }
