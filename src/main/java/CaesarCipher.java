@@ -5,11 +5,11 @@ public class CaesarCipher {
 
 
     public CaesarCipher(String input, int key) throws Exception {
-        if(input != ""){
+        if (input != "") {
             checkForNumber(input);
             userInput = input;
             shiftKey = key;
-        }else {
+        } else {
             throw new Exception("The input is null");
         }
 
@@ -23,20 +23,22 @@ public class CaesarCipher {
         return shiftKey;
     }
 
-    public String encrypt(){
+    public String encrypt() {
         String[] alphabetsArrays = alphabets.split("");
         String[] toEncryptAlphabets = userInput.split("");
         String encrypted = "";
-        for (String toEncryptAlphabet: toEncryptAlphabets) {
-            int indexOfAlphabet = alphabets.indexOf(toEncryptAlphabet);
-            int indexOfEncryptedAlphabet = indexOfAlphabet + shiftKey;
-            if(indexOfEncryptedAlphabet>26){
-                encrypted += alphabetsArrays[indexOfEncryptedAlphabet-26];
+        for (String toEncryptAlphabet : toEncryptAlphabets) {
+            if (alphabets.indexOf(toEncryptAlphabet) > -1) {
+                int indexOfAlphabet = alphabets.indexOf(toEncryptAlphabet);
+                int indexOfEncryptedAlphabet = indexOfAlphabet + shiftKey;
+                if (indexOfEncryptedAlphabet > 26) {
+                    encrypted += alphabetsArrays[indexOfEncryptedAlphabet - 26];
+                } else {
+                    encrypted += alphabetsArrays[indexOfEncryptedAlphabet];
+                }
+            } else {
+                encrypted += toEncryptAlphabet;
             }
-            else{
-                encrypted += alphabetsArrays[indexOfEncryptedAlphabet];
-            }
-
 
         }
         return encrypted;

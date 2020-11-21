@@ -51,4 +51,9 @@ public class CaesarCipherTest {
         assertEquals("b", testCaesarCipher.encrypt());
     }
 
+    @Test
+    public void newCaesarCipher_encryptsStringsWithSpace_bCpz() throws Exception{
+        CaesarCipher testCaesarCipher = new CaesarCipher("a boy", 1);
+        assertEquals("b cpz", testCaesarCipher.encrypt());
+    }
 }
