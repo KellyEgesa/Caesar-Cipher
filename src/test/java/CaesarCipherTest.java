@@ -52,6 +52,12 @@ public class CaesarCipherTest {
     }
 
     @Test
+    public void newCaesarCipher_encryptsUpperCaseStrings_BCpz() throws Exception{
+        CaesarCipher testCaesarCipher = new CaesarCipher("A boy", 1);
+        assertEquals("B cpz", testCaesarCipher.encrypt());
+    }
+
+    @Test
     public void newCaesarCipher_encryptsStringsWithSpace_bCpz() throws Exception{
         CaesarCipher testCaesarCipher = new CaesarCipher("a boy", 1);
         assertEquals("b cpz", testCaesarCipher.encrypt());
@@ -73,5 +79,11 @@ public class CaesarCipherTest {
     public void newCaesarCipher_decryptsStringsWithSpace_aBoy() throws  Exception{
         CaesarCipher testCaesarCipher = new CaesarCipher("b cpz", 1);
         assertEquals("a boy", testCaesarCipher.decrypt());
+    }
+
+    @Test
+    public void newCaesarCipher_decryptsUpperCaseStrings_ABOY() throws Exception{
+        CaesarCipher testCaesarCipher = new CaesarCipher("B CPZ", 1);
+        assertEquals("A BOY", testCaesarCipher.decrypt());
     }
 }

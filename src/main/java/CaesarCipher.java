@@ -29,22 +29,28 @@ public class CaesarCipher {
     }
 
     public String encrypt() {
-        String[] alphabetsArrays = alphabets.split("");
         String[] toEncryptAlphabets = userInput.split("");
         String encrypted = "";
         for (String toEncryptAlphabet : toEncryptAlphabets) {
-            if (alphabets.contains(toEncryptAlphabet)) {
-                int indexOfAlphabet = alphabets.indexOf(toEncryptAlphabet);
+            Boolean upperCase = Character.isUpperCase(toEncryptAlphabet.charAt(0));
+            String alphabetRef;
+            if(upperCase){
+                alphabetRef = alphabets.toUpperCase();
+            }
+            else{
+                alphabetRef = alphabets;
+            }
+            if (alphabetRef.contains(toEncryptAlphabet)) {
+                int indexOfAlphabet = alphabetRef.indexOf(toEncryptAlphabet);
                 int indexOfEncryptedAlphabet = indexOfAlphabet + shiftKey;
                 if (indexOfEncryptedAlphabet > 25) {
-                    encrypted += alphabetsArrays[indexOfEncryptedAlphabet - 26];
+                    encrypted +=  alphabetRef.charAt(indexOfEncryptedAlphabet - 26);;
                 } else {
-                    encrypted += alphabetsArrays[indexOfEncryptedAlphabet];
+                    encrypted += alphabetRef.charAt(indexOfEncryptedAlphabet);
                 }
             } else {
                 encrypted += toEncryptAlphabet;
             }
-
         }
         return encrypted;
     }
@@ -59,18 +65,25 @@ public class CaesarCipher {
     }
 
     public String decrypt() {
-        String[] alphabetsArrays = alphabets.split("");
         String[] toDecryptAlphabets = userInput.split("");
         String decrypted = "";
         for (String toDecryptAlphabet: toDecryptAlphabets) {
-            if (alphabets.contains(toDecryptAlphabet)){
-                int indexOfAlphabet = alphabets.indexOf(toDecryptAlphabet);
+            Boolean upperCase = Character.isUpperCase(toDecryptAlphabet.charAt(0));
+            String alphabetRef;
+            if(upperCase){
+                alphabetRef = alphabets.toUpperCase();
+            }
+            else{
+                alphabetRef = alphabets;
+            }
+            if (alphabetRef.contains(toDecryptAlphabet)){
+                int indexOfAlphabet = alphabetRef.indexOf(toDecryptAlphabet);
                 int indexOfDecryptedAlphabet = indexOfAlphabet - shiftKey;
                 if(indexOfDecryptedAlphabet < 0){
-                    decrypted += alphabetsArrays[26 + indexOfDecryptedAlphabet];
+                    decrypted += alphabetRef.charAt(26 + indexOfDecryptedAlphabet);
                 }
                 else{
-                    decrypted += alphabetsArrays[indexOfDecryptedAlphabet];
+                    decrypted += alphabetRef.charAt(indexOfDecryptedAlphabet);
                 }
             }else{
                 decrypted+=toDecryptAlphabet;
