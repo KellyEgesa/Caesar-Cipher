@@ -62,33 +62,4 @@ public class Encrypt {
             }
         }
     }
-
-    public String decrypt() {
-        String[] toDecryptAlphabets = userInput.split("");
-        String decrypted = "";
-        for (String toDecryptAlphabet: toDecryptAlphabets) {
-            Boolean upperCase = Character.isUpperCase(toDecryptAlphabet.charAt(0));
-            String alphabetRef;
-            if(upperCase){
-                alphabetRef = alphabets.toUpperCase();
-            }
-            else{
-                alphabetRef = alphabets;
-            }
-            if (alphabetRef.contains(toDecryptAlphabet)){
-                int indexOfAlphabet = alphabetRef.indexOf(toDecryptAlphabet);
-                int indexOfDecryptedAlphabet = indexOfAlphabet - shiftKey;
-                if(indexOfDecryptedAlphabet < 0){
-                    decrypted += alphabetRef.charAt(26 + indexOfDecryptedAlphabet);
-                }
-                else{
-                    decrypted += alphabetRef.charAt(indexOfDecryptedAlphabet);
-                }
-            }else{
-                decrypted+=toDecryptAlphabet;
-            }
-
-        }
-        return  decrypted;
-    }
 }
