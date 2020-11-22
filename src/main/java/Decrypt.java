@@ -4,7 +4,7 @@ public class Decrypt {
     private final String alphabets = "abcdefghijklmnopqrstuvwxyz";
 
     public Decrypt(String input, int key) throws Exception {
-        if (input != "") {
+        if (!input.isEmpty()) {
             checkForNumber(input);
             userInput = input;
             if (key > 26) {

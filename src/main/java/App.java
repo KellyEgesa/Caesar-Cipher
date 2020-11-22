@@ -9,11 +9,13 @@ public class App {
         System.out.println("==================================WELCOME==================================");
 
         System.out.println("Kindly enter your String below:-");
-        String userInput = myScanner.nextLine().trim();
-
+        String userInput = myScanner.nextLine();
+        System.out.println(userInput);
         System.out.println("Enter the ShiftKey below:-");
         int shiftKey = myScanner.nextInt();
+
         Encrypt encrypted = new Encrypt(userInput, shiftKey);
+
         System.out.println("===========================================================================");
         System.out.println("===========================================================================");
 

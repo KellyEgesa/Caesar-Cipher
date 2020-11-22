@@ -4,7 +4,7 @@ public class Encrypt {
     private final String alphabets = "abcdefghijklmnopqrstuvwxyz";
 
     public Encrypt(String input, int key) throws Exception {
-        if (input != "") {
+        if (!input.isEmpty()) {
             checkForNumber(input);
             userInput = input;
             if(key > 26){
