@@ -12,13 +12,8 @@ A  user can input the string that is to be encrypted using the caesar cipher and
 
 | BEHAVIOR:Our program should handle |                  Input Example When it receives                   |           Output Example It should return           |
 | ---------------------------------- | :---------------------------------------------------------------: | :-------------------------------------------------: |
-| User Input                              |               click on the user link on the nav bar               |                Display the user page                |
-| User                               |              click on the user link on the homepage               |                Display the user page                |
-| Repositories                       |              click on the repos link on the homepage              |               Display the repos page                |
-| Repositories                       |               click on the repos link on the navbar               |               Display the repos page                |
-| Github Search                      |            click on the Github-Searclink on the navbar            |                Display the home page                |
-| Search User                        |   parameters are submitted by the user for searching a username   | Username and details based on the search parameters |
-| Search User                        | parameters are submitted by the user for searching a repositories |  Repositories found based on the search parameters  |
+| Valid string and a shift key                             |               Inputs:"QUICK BROWN" Shift key: 23             |                Encrypted Message:"NRFZH YOLTK"               |
+| Empty string and a shift key                              |              Input:"" ShiftKey:1|         Exception The input is null               |
 
 ## Known Bugs
 
